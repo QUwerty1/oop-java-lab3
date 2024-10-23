@@ -45,7 +45,7 @@ public class IntArray implements Cloneable {
      * @param conditionString Услоиве фильтрации. Строка, содержащая знак из набора (>, <, =, <>) и число из диапазона от -2^31 до 2^31-1
      * @return Массив чисел, подходящих под условие
      */
-    public IntArray filteredArray(String conditionString) {
+    public IntArray filteredArray(String conditionString) throws IllegalStateException{
         int target;
         IntPredicate condition;
 
@@ -79,7 +79,7 @@ public class IntArray implements Cloneable {
     /**
      * @param numbersString Услоиве фильтрации. Строка, содержащая знак из набора (>, <, =, <>) и число из диапазона от -2^31 до 2^31-1
      */
-    public void parseString(String numbersString) {
+    public void parseString(String numbersString) throws NumberFormatException{
         String[] strNumbers = numbersString.split(" ");
         this.numbers = new int[strNumbers.length];
 
@@ -92,7 +92,7 @@ public class IntArray implements Cloneable {
      * @param conditionString Услоиве фильтрации. Строка, содержащая знак из набора (>, <, =, <>) и число из диапазона от -2^31 до 2^31-1
      * @return Есть ли в массиве числа, удавлетворяющие условию
      */
-    public boolean checkForCondition(String conditionString) {
+    public boolean checkForCondition(String conditionString) throws IllegalStateException {
         return this.filteredArray(conditionString).numbers.length > 0;
     }
 

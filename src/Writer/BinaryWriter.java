@@ -9,7 +9,7 @@ import java.io.OutputStream;
 public class BinaryWriter extends Writer {
 
     public BinaryWriter(OutputStream outputStream) {
-        super(outputStream);
+        super();
         output = new DataOutputStream(outputStream);
     }
 
