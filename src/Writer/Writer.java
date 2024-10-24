@@ -3,9 +3,9 @@ package Writer;
 import IntArray.IntArray;
 
 import java.io.IOException;
-import java.io.OutputStream;
 
 abstract public class Writer implements AutoCloseable {
-    public Writer(OutputStream outputStream) {}
+    public Writer() {}
     public abstract void write(IntArray intArray) throws IOException;
+    public abstract void write(String string) throws IOException;
 }

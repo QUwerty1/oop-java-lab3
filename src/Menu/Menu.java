@@ -97,7 +97,8 @@ public class Menu {
         fileName = scanner.next();
     }
 
-    private void accessFileError(String header, ReadWriteType readWriteType) {
+    private void accessFileError(String header, ReadWriteType readWriteType)
+    {
         System.out.println(header);
         if (readWriteType != ReadWriteType.console) {
             int choice = getIntAnswer(1, 2, """
@@ -153,8 +154,7 @@ public class Menu {
                 if (selectedTask == 1 || selectedTask == 3) {
                     writer.write(intArray);
                 } else {
-                    assert writer instanceof TextWriter;
-                    ((TextWriter) writer).write(stringResult);
+                    writer.write(stringResult);
                 }
                 writer.close();
                 isWriteSucceeded = true;

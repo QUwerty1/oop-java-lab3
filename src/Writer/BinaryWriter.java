@@ -20,6 +20,9 @@ public class BinaryWriter extends Writer {
         }
     }
 
+    @Override
+    public void write(String string) { }
+
     final private DataOutputStream output;
 
     @Override
