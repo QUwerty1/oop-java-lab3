@@ -1,5 +1,7 @@
 package IntArray;
 
+import Menu.WrongConditionStringException;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.function.IntPredicate;
@@ -19,7 +21,7 @@ public class IntArray implements Cloneable {
     /**
      * @param numbersString Строка, содержащая числа в диапазоне от -2^31 до 2^31-1, разделенные пробелами
      */
-    public IntArray(String numbersString) {
+    public IntArray(String numbersString) throws NumberFormatException {
         parseString(numbersString);
     }
 
@@ -45,33 +47,37 @@ public class IntArray implements Cloneable {
      * @param conditionString Услоиве фильтрации. Строка, содержащая знак из набора (>, <, =, <>) и число из диапазона от -2^31 до 2^31-1
      * @return Массив чисел, подходящих под условие
      */
-    public IntArray filteredArray(String conditionString) throws IllegalStateException{
+    public IntArray filteredArray(String conditionString)
+            throws WrongConditionStringException {
         int target;
         IntPredicate condition;
 
-        switch (conditionString.charAt(0)) {
-            case '>':
-                target = Integer.parseInt(conditionString.substring(1));
-                condition = i -> i > target;
-                break;
-
-            case '=':
-                target = Integer.parseInt(conditionString.substring(1));
-                condition = i -> i == target;
-                break;
-
-            case '<':
-                if (conditionString.charAt(2) == '>') {
-                    target = Integer.parseInt(conditionString.substring(2));
-                    condition = i -> i != target;
-                } else {
+        try {
+            switch (conditionString.charAt(0)) {
+                case '>':
                     target = Integer.parseInt(conditionString.substring(1));
-                    condition = i -> i < target;
-                }
-                break;
+                    condition = i -> i > target;
+                    break;
 
-            default:
-                throw new IllegalStateException("Первым символом должен быть знак из набора (>, <, =, <>)");
+                case '=':
+                    target = Integer.parseInt(conditionString.substring(1));
+                    condition = i -> i == target;
+                    break;
+
+                case '<':
+                    if (conditionString.charAt(2) == '>') {
+                        target = Integer.parseInt(conditionString.substring(2));
+                        condition = i -> i != target;
+                    } else {
+                        target = Integer.parseInt(conditionString.substring(1));
+                        condition = i -> i < target;
+                    }
+                    break;
+                default:
+                    throw new WrongConditionStringException("Первым символом должен быть знак из набора (>, <, =, <>)");
+            }
+        } catch (NumberFormatException exception) {
+            throw new WrongConditionStringException("Не удалось преобразовать строку в число");
         }
         return new IntArray(Arrays.stream(this.numbers).filter(condition).toArray());
     }
@@ -92,7 +98,8 @@ public class IntArray implements Cloneable {
      * @param conditionString Услоиве фильтрации. Строка, содержащая знак из набора (>, <, =, <>) и число из диапазона от -2^31 до 2^31-1
      * @return Есть ли в массиве числа, удавлетворяющие условию
      */
-    public boolean checkForCondition(String conditionString) throws IllegalStateException {
+    public boolean checkForCondition(String conditionString)
+            throws WrongConditionStringException {
         return this.filteredArray(conditionString).numbers.length > 0;
     }
 

@@ -7,10 +7,10 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class BinaryReader extends Reader{
-    private DataInputStream input;
+    final private DataInputStream input;
 
     public BinaryReader(InputStream inputStream) {
-        super(inputStream);
+        super();
         input = new DataInputStream(inputStream);
     }
 
@@ -24,7 +24,7 @@ public class BinaryReader extends Reader{
     }
 
     @Override
-    public void close() throws Exception {
+    public void close() throws IOException {
         input.close();
     }
 }

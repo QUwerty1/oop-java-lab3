@@ -4,10 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8c9ba04-48df-42bc-b8b7-cf2102b6e808" name="Changes" comment="Сделан Write и его потомки. Сделан ReadWriteType. Menu доделан до метода write">
+    <list default="true" id="d8c9ba04-48df-42bc-b8b7-cf2102b6e808" name="Changes" comment="Добавил перегрузка Writer.write с параметром String">
+      <change afterPath="$PROJECT_DIR$/src/Menu/StageOutOfBoundsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Menu/WrongConditionStringException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Writer/OutputStreamShield.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testo.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IntArray/IntArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IntArray/IntArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu/ReadWriteType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu/ReadWriteType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reader/BinaryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reader/BinaryReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reader/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reader/Reader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reader/TextReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reader/TextReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Writer/BinaryWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Writer/BinaryWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Writer/TextWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Writer/TextWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Writer/Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Writer/Writer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +29,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Exception" />
         <option value="Class" />
       </list>
     </option>
@@ -45,6 +57,11 @@
     &quot;last_opened_file_path&quot;: &quot;/home/mrquw/repos/Java/OOP/Lab3&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Lab3" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -63,6 +80,15 @@
       <option name="presentableId" value="Default" />
       <updated>1729681032910</updated>
     </task>
+    <task id="LOCAL-00001" summary="Добавил перегрузка Writer.write с параметром String">
+      <option name="closed" value="true" />
+      <created>1729771853236</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1729771853236</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -70,20 +96,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Сделан Write и его потомки. Сделан ReadWriteType. Menu доделан до метода write" />
-    <option name="LAST_COMMIT_MESSAGE" value="Сделан Write и его потомки. Сделан ReadWriteType. Menu доделан до метода write" />
+    <MESSAGE value="Добавил перегрузка Writer.write с параметром String" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил перегрузка Writer.write с параметром String" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Menu/Menu.java</url>
-          <line>133</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Menu/Menu.java</url>
-          <line>163</line>
-          <option name="timeStamp" value="14" />
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

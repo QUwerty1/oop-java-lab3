@@ -10,8 +10,9 @@ import java.io.InputStreamReader;
 public class TextReader extends Reader {
     final private BufferedReader input;
 
+
     public TextReader(InputStream inputStream) {
-        super(inputStream);
+        super();
         input = new BufferedReader(new InputStreamReader(inputStream));
     }
 
@@ -21,7 +22,7 @@ public class TextReader extends Reader {
     }
 
     @Override
-    public void close() throws Exception {
+    public void close() throws IOException {
         input.close();
     }
 }

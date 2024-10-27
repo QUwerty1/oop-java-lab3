@@ -26,7 +26,7 @@ public class TextWriter extends Writer {
     final private OutputStreamWriter output;
 
     @Override
-    public void close() throws Exception {
+    public void close() throws IOException {
         output.close();
     }
 }

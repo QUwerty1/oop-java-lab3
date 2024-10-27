@@ -26,7 +26,7 @@ public class BinaryWriter extends Writer {
     final private DataOutputStream output;
 
     @Override
-    public void close() throws Exception {
+    public void close() throws IOException {
         output.close();
     }
 }
