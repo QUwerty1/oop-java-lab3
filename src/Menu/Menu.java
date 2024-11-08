@@ -88,11 +88,11 @@ public class Menu {
         String[] choices =
                 isHideBinary ? new String[]{
                         "Консоль",
-                        "Бинарный файл",
+                        "Текстовый файл",
                 } : new String[]{
                         "Консоль",
-                        "Бинарный файл",
-                        "Текстовый файл"
+                        "Текстовый файл",
+                        "Бинарный файл"
                 };
         int typeId = showChoicesMenu(message, choices);
         return ReadWriteType.values()[typeId - 1];
@@ -163,10 +163,10 @@ public class Menu {
         int choice = showChoicesMenu(
                 "Выберите задание",
                 new String[]{
-                        "A",
-                        "B",
-                        "C",
-                        "D",
+                        "A. Вывести числа, удовлетворяющие условию",
+                        "B. Проверить, есть ли в массиве числа, удовлетворяющие условию",
+                        "C. Удалить дубликаты",
+                        "D. Определить упорядоченность",
                         "Назад",
                         "Выход"
                 }
@@ -183,38 +183,5 @@ public class Menu {
     static public String showInputConditionStringMenu() {
         System.out.println("Введите строку с условием [<1; >2; =3; <>4]");
         return scanner.next();
-    }
-
-    static public String showCompleteTasksMenu(IntArray intArray, int taskId, String conditionString) {
-        String stringResult = "";
-        switch (taskId) {
-            case 1: {
-                try {
-                    intArray = intArray.filteredArray(conditionString);
-                } catch (WrongConditionStringException e) {
-                    System.out.println("Строка введена неверно");
-                    goPreviousStage();
-                }
-                break;
-            }
-            case 2: {
-                try {
-                    stringResult = intArray.checkForCondition(conditionString)
-                            ? "Есть" : "Нет";
-                } catch (WrongConditionStringException e) {
-                    System.out.println("Строка введена неверно");
-                    goPreviousStage();
-                }
-                break;
-            }
-            case 3: {
-                intArray = intArray.filteredDuplicates();
-                break;
-            }
-            case 4: {
-                stringResult = intArray.getOrder().toString();
-            }
-        }
-        return stringResult;
     }
 }

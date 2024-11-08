@@ -16,5 +16,7 @@ public class OutputStreamShield extends OutputStream implements AutoCloseable {
         output.write(i);
     }
 
-    public void close() {}
+    public void close() throws IOException {
+        output.flush();
+    }
 }

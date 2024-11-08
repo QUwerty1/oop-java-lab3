@@ -2,11 +2,12 @@ package IntArray;
 
 import Menu.WrongConditionStringException;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.function.IntPredicate;
 
-public class IntArray implements Cloneable {
+public class IntArray implements Cloneable, Serializable {
 
     private int[] numbers;
 
@@ -65,7 +66,7 @@ public class IntArray implements Cloneable {
                     break;
 
                 case '<':
-                    if (conditionString.charAt(2) == '>') {
+                    if (conditionString.charAt(1) == '>') {
                         target = Integer.parseInt(conditionString.substring(2));
                         condition = i -> i != target;
                     } else {

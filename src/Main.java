@@ -1,3 +1,9 @@
+// 24)
+// a. Выберите из заданного множества числа, удовлетворяющие условию, введенному ввиде строки при запуске программы (“>0” или “<10”);
+// b. Проверить есть ли в массиве чисел такие: равные/неравные заданному (условие также пользователь вводит в виде строки «=1» или «<>1»);
+// c. В строке записаны числа разделенные пробелами, требуется удалить дубликаты.
+// d. Определить упорядоченность массива чисел (по возрастанию/по убыванию/не упорядочены)
+
 import IntArray.IntArray;
 import Menu.*;
 import Reader.*;
@@ -21,7 +27,8 @@ public class Main {
         int taskId = -1;
         String filePath = "";
         String conditionString = "";
-        String stringContent = "";
+        String stringResult = "";
+        IntArray resultArray = new IntArray();
 
         while (Menu.getCurrentMenuStage() != -1) {
             switch (Menu.getCurrentMenuStage()) {
@@ -31,12 +38,10 @@ public class Main {
                             false
                     );
                     Menu.goNextStage();
-                    break;
                 }
                 case 1: {
                     filePath = Menu.showInputArrayMenu(inputType);
                     Menu.goNextStage();
-                    break;
                 }
                 case 2: {
                     try {
@@ -68,15 +73,46 @@ public class Main {
                     break;
                 }
                 case 4: {
-                    if (taskId == 3 || taskId == 4)
+                    if (taskId == 3 || taskId == 4) {
                         Menu.goNextStage();
+                        break;
+                    }
 
                     conditionString = Menu.showInputConditionStringMenu();
                     Menu.goNextStage();
                     break;
                 }
                 case 5: {
-                    stringContent = Menu.showCompleteTasksMenu(intArray, taskId, conditionString);
+                    switch (taskId) {
+                        case 1: {
+                            try {
+                                resultArray = intArray.filteredArray(conditionString);
+                            } catch (WrongConditionStringException e) {
+                                System.out.println("Строка введена неверно");
+                                Menu.onWrongConsoleInput(2);
+                            }
+                            break;
+                        }
+                        case 2: {
+                            try {
+                                stringResult = intArray.checkForCondition(conditionString)
+                                        ? "Есть" : "Нет";
+                            } catch (WrongConditionStringException e) {
+                                System.out.println("Строка введена неверно");
+                                Menu.onWrongConsoleInput(2);
+                                break;
+                            }
+                            break;
+                        }
+                        case 3: {
+                            resultArray = intArray.filteredDuplicates();
+                            break;
+                        }
+                        case 4: {
+                            stringResult = intArray.getOrder().toString();
+                            break;
+                        }
+                    }
                     Menu.goNextStage();
                     break;
                 }
@@ -107,9 +143,9 @@ public class Main {
                                 new FileOutputStream(filePath));
                     }) {
                         if (taskId == 1 || taskId == 3) {
-                            writer.write(intArray);
+                            writer.write(resultArray);
                         } else {
-                            writer.write(stringContent);
+                            writer.write(stringResult);
                         }
                         Menu.goBackStages(5);
 
