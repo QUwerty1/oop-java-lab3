@@ -35,4 +35,8 @@ public class MenuController {
     public static void exit() {
         currentMenuStage = -1;
     }
+
+    public static boolean isExited() {
+        return currentMenuStage == -1;
+    }
 }

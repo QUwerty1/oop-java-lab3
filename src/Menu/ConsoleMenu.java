@@ -24,22 +24,21 @@ public class ConsoleMenu {
     private static String stringResult;
 
     public static void start() {
-
         MenuController.setCountStages(5);
 
-        while (MenuController.getCurrentMenuStage() != -1) {
+        while (!MenuController.isExited()) {
             switch (MenuController.getCurrentMenuStage()) {
-                case 0 -> ChooseInput();
-                case 1 -> Input();
-                case 2 -> ChooseTask();
-                case 3 -> CompleteTask();
-                case 4 -> ChooseOutput();
-                case 5 -> Output();
+                case 0 -> chooseInput();
+                case 1 -> input();
+                case 2 -> chooseTask();
+                case 3 -> completeTask();
+                case 4 -> chooseOutput();
+                case 5 -> output();
             }
         }
     }
 
-    public static void ChooseInput() {
+    public static void chooseInput() {
         int variant = chooseFromVariants(
                 "Откуда вы хотите ввести массив",
                 new String[]{
@@ -52,7 +51,7 @@ public class ConsoleMenu {
         MenuController.goNextStage();
     }
 
-    public static void Input() {
+    public static void input() {
         String pathToFile = "";
 
         if (inputType == ReadWriteType.console) {
@@ -64,23 +63,26 @@ public class ConsoleMenu {
         }
 
         try (Reader reader = switch (inputType) {
-            case console -> new TextReader(System.in);
-            case textFile -> new TextReader(new FileInputStream(pathToFile));
-            case binaryFile -> new BinaryReader(new FileInputStream(pathToFile));
+            case console -> new TextReader(
+                    System.in);
+            case textFile -> new TextReader(
+                    new FileInputStream(pathToFile));
+            case binaryFile -> new BinaryReader(
+                    new FileInputStream(pathToFile));
         }) {
             intArray = new IntArray(reader.read());
             MenuController.goNextStage();
 
         } catch (IOException | NumberFormatException ex) {
             if (inputType == ReadWriteType.console) {
-                onWrongConsoleInput("Строка введена неверно");
+                onReadError("Строка введена неверно");
             } else {
-                onFileAccessError("Не удалось прочитать информацию из файла");
+                onReadError("Не удалось прочитать информацию из файла");
             }
         }
     }
 
-    public static void ChooseTask() {
+    public static void chooseTask() {
         taskId = chooseFromVariants(
                 "Выберите задание",
                 new String[]{
@@ -93,7 +95,7 @@ public class ConsoleMenu {
         MenuController.goNextStage();
     }
 
-    public static void CompleteTask() {
+    public static void completeTask() {
         if (taskId == 1 || taskId == 2) {
             System.out.println("Введите строку с условием (>12, <1, =-1, <>4):");
             String conditionString = scanner.next();
@@ -125,7 +127,7 @@ public class ConsoleMenu {
         }
     }
 
-    public static void ChooseOutput() {
+    public static void chooseOutput() {
         String[] variants;
         if (taskId == 2 || taskId == 4) {
             variants = new String[]{
@@ -147,7 +149,7 @@ public class ConsoleMenu {
         MenuController.goNextStage();
     }
 
-    public static void Output() {
+    public static void output() {
         String pathToFile = "";
 
         if (outputType != ReadWriteType.console) {
@@ -156,7 +158,8 @@ public class ConsoleMenu {
         }
 
         try (Writer writer = switch (outputType) {
-            case console -> new TextWriter(new OutputStreamShield(System.out));
+            case console -> new TextWriter(
+                    new OutputStreamShield(System.out));
             case textFile -> new TextWriter(
                     new FileOutputStream(pathToFile));
             case binaryFile -> new BinaryWriter(
@@ -170,7 +173,7 @@ public class ConsoleMenu {
             }
             MenuController.exit();
         } catch (IOException e) {
-            onFileAccessError("Не удалось записать результат в файл");
+            onReadError("Не удалось записать результат в файл");
         }
     }
 
@@ -198,26 +201,7 @@ public class ConsoleMenu {
         return inputInt(1, variants.length);
     }
 
-    public static void onFileAccessError(String header) {
-        int variant = chooseFromVariants(
-                header,
-                new String[]{
-                        "Попробовать ввести",
-                        "Назад",
-                        "Выйти"
-                }
-        );
-        switch (variant) {
-            case 2:
-                MenuController.goPreviousStage();
-                break;
-            case 3:
-                MenuController.exit();
-                break;
-        }
-    }
-
-    public static void onWrongConsoleInput(String header) {
+    public static void onReadError(String header) {
         int variant = chooseFromVariants(
                 header,
                 new String[]{
@@ -235,6 +219,4 @@ public class ConsoleMenu {
                 break;
         }
     }
-
-
 }

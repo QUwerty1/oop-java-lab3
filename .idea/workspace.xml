@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8c9ba04-48df-42bc-b8b7-cf2102b6e808" name="Changes" comment="Задания 1 и 3 пофикшены, добавлен OutputStreamShield для предотвращения закрытия System.out">
-      <change afterPath="$PROJECT_DIR$/src/Menu/ConsoleMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Menu/MenuController.java" afterDir="false" />
+    <list default="true" id="d8c9ba04-48df-42bc-b8b7-cf2102b6e808" name="Changes" comment="Вся логика из Menu и Main перенесена в MenuController и ConsoleMenu.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu/Menu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Reader/BinaryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reader/BinaryReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Reader/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reader/Reader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Reader/TextReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reader/TextReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Writer/BinaryWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Writer/BinaryWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Writer/OutputStreamShield.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Writer/OutputStreamShield.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Writer/TextWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Writer/TextWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Writer/Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Writer/Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu/ConsoleMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu/ConsoleMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +92,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731057417963</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Вся логика из Menu и Main перенесена в MenuController и ConsoleMenu.">
+      <option name="closed" value="true" />
+      <created>1731585353322</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1731585353322</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -113,7 +111,8 @@
     <MESSAGE value="Добавил перегрузка Writer.write с параметром String" />
     <MESSAGE value="Переписал Menu c использованием статических классов. Не работают задания 1 и 3" />
     <MESSAGE value="Задания 1 и 3 пофикшены, добавлен OutputStreamShield для предотвращения закрытия System.out" />
-    <option name="LAST_COMMIT_MESSAGE" value="Задания 1 и 3 пофикшены, добавлен OutputStreamShield для предотвращения закрытия System.out" />
+    <MESSAGE value="Вся логика из Menu и Main перенесена в MenuController и ConsoleMenu." />
+    <option name="LAST_COMMIT_MESSAGE" value="Вся логика из Menu и Main перенесена в MenuController и ConsoleMenu." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
