@@ -1,7 +1,5 @@
 package Reader;
 
-import IntArray.IntArray;
-
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,12 +13,12 @@ public class BinaryReader extends Reader{
     }
 
     @Override
-    public IntArray read() throws IOException {
+    public int[] read() throws IOException {
         int[] numbers = new int[input.available() / 4];
         for (int i = 0; i < numbers.length; i++) {
             numbers[i] = input.readInt();
         }
-        return new IntArray(numbers);
+        return numbers;
     }
 
     @Override

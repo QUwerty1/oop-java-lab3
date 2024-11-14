@@ -1,7 +1,5 @@
 package Writer;
 
-import IntArray.IntArray;
-
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -14,8 +12,8 @@ public class BinaryWriter extends Writer {
     }
 
     @Override
-    public void write(IntArray intArray) throws IOException {
-        for (int number: intArray.getNumbers()) {
+    public void write(int[] numbers) throws IOException {
+        for (int number: numbers) {
             output.writeInt(number);
         }
     }

@@ -5,7 +5,7 @@ import java.io.OutputStream;
 
 public class OutputStreamShield extends OutputStream implements AutoCloseable {
 
-    private OutputStream output;
+    final private OutputStream output;
 
     public OutputStreamShield(OutputStream outputStream) {
         output = outputStream;

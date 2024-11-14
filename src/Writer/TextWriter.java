@@ -14,8 +14,8 @@ public class TextWriter extends Writer {
     }
 
     @Override
-    public void write(IntArray intArray) throws IOException {
-        output.write(intArray.toString());
+    public void write(int[] numbers) throws IOException {
+        output.write(new IntArray(numbers).toString());
     }
 
     public void write(String string) throws IOException {

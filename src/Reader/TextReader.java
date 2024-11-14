@@ -17,12 +17,11 @@ public class TextReader extends Reader {
     }
 
     @Override
-    public IntArray read() throws IOException {
-        return new IntArray(input.readLine());
+    public int[] read() throws IOException {
+        return new IntArray(input.readLine()).getNumbers();
     }
 
     @Override
-    public void close() throws IOException {
-        input.close();
+    public void close() {
     }
 }

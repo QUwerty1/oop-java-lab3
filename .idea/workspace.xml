@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8c9ba04-48df-42bc-b8b7-cf2102b6e808" name="Changes" comment="Задания 1 и 3 пофикшены, добавлен OutputStreamShield для предотвращения закрытия System.out">
+      <change afterPath="$PROJECT_DIR$/src/Menu/ConsoleMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Menu/MenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IntArray/IntArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IntArray/IntArray.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu/Menu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reader/BinaryReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reader/BinaryReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reader/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reader/Reader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reader/TextReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reader/TextReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Writer/BinaryWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Writer/BinaryWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Writer/OutputStreamShield.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Writer/OutputStreamShield.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Writer/TextWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Writer/TextWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Writer/Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Writer/Writer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,15 +45,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Lab3.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/mrquw/repos/Java/OOP/Lab3&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Lab3.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/mrquw/repos/Java/OOP/Lab3",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -87,7 +94,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730023983277</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Задания 1 и 3 пофикшены, добавлен OutputStreamShield для предотвращения закрытия System.out">
+      <option name="closed" value="true" />
+      <created>1731057417963</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1731057417963</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -97,25 +112,21 @@
     <MESSAGE value="Сделан Write и его потомки. Сделан ReadWriteType. Menu доделан до метода write" />
     <MESSAGE value="Добавил перегрузка Writer.write с параметром String" />
     <MESSAGE value="Переписал Menu c использованием статических классов. Не работают задания 1 и 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Переписал Menu c использованием статических классов. Не работают задания 1 и 3" />
+    <MESSAGE value="Задания 1 и 3 пофикшены, добавлен OutputStreamShield для предотвращения закрытия System.out" />
+    <option name="LAST_COMMIT_MESSAGE" value="Задания 1 и 3 пофикшены, добавлен OutputStreamShield для предотвращения закрытия System.out" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>137</line>
+          <line>12</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>100</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>90</line>
-          <option name="timeStamp" value="7" />
+          <url>file://$PROJECT_DIR$/src/Menu/ConsoleMenu.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
