@@ -75,24 +75,29 @@ public class ConsoleMenu {
 
         } catch (IOException | NumberFormatException ex) {
             if (inputType == ReadWriteType.console) {
-                onReadError("Строка введена неверно");
+                onReadWriteError("Строка введена неверно");
             } else {
-                onReadError("Не удалось прочитать информацию из файла");
+                onReadWriteError("Не удалось прочитать информацию из файла");
             }
         }
     }
 
     public static void chooseTask() {
+        System.out.println("Массив: " + intArray);
         taskId = chooseFromVariants(
                 "Выберите задание",
                 new String[]{
-                        "А - Выберите из заданного множества числа, удовлетворяющие условию, введенному ввиде строки при запуске программы (“>0” или “<10”)",
+                        "А - Выберать числа, удовлетворяющие условию (“>0” или “<10”)",
                         "B - Проверить есть ли в массиве чисел такие: равные/неравные заданному (условие также пользователь вводит в виде строки «=1» или «<>1»)",
-                        "C - В строке записаны числа разделенные пробелами, требуется удалить дубликаты",
-                        "D - Определить упорядоченность массива чисел (по возрастанию/по убыванию/не упорядочены)"
+                        "C - Удалить дубликаты",
+                        "D - Определить упорядоченность массива чисел (по возрастанию/по убыванию/не упорядочены)",
+                        "Выйти"
                 }
         );
-        MenuController.goNextStage();
+        if (taskId == 5)
+            MenuController.exit();
+        else
+            MenuController.goNextStage();
     }
 
     public static void completeTask() {
@@ -116,12 +121,7 @@ public class ConsoleMenu {
             if (taskId == 3)
                 numbersResult = intArray.filteredDuplicates().getNumbers();
             else
-                stringResult = switch (intArray.getOrder()) {
-                    case ascending -> "По возрастанию";
-                    case descending -> "По убыванию";
-                    case unordered -> "Не упорядочен";
-                    case unknown -> "Не определено";
-                };
+                stringResult = intArray.getOrder().toString();
 
             MenuController.goNextStage();
         }
@@ -167,13 +167,15 @@ public class ConsoleMenu {
         }) {
             if (taskId == 1 || taskId == 3) {
                 writer.write(numbersResult);
-            }
-            else {
+                writer.write("\n");
+
+                intArray = new IntArray(numbersResult);
+            } else {
                 writer.write(stringResult);
             }
-            MenuController.exit();
+            MenuController.goBackStages(3);
         } catch (IOException e) {
-            onReadError("Не удалось записать результат в файл");
+            onReadWriteError("Не удалось записать результат в файл");
         }
     }
 
@@ -182,12 +184,12 @@ public class ConsoleMenu {
         do {
             try {
                 num = scanner.nextInt();
+                if (num < min || num > max)
+                    System.out.println("Введенное число выходит из диапазона");
             } catch (InputMismatchException ex) {
                 scanner.next();
                 System.out.println("Введите число");
             }
-            if (num < min || num > max)
-                System.out.println("Введенное число выходит из диапазона");
         } while (num < min || num > max);
 
         return num;
@@ -201,7 +203,7 @@ public class ConsoleMenu {
         return inputInt(1, variants.length);
     }
 
-    public static void onReadError(String header) {
+    public static void onReadWriteError(String header) {
         int variant = chooseFromVariants(
                 header,
                 new String[]{
@@ -211,12 +213,8 @@ public class ConsoleMenu {
                 }
         );
         switch (variant) {
-            case 2:
-                MenuController.goPreviousStage();
-                break;
-            case 3:
-                MenuController.exit();
-                break;
+            case 2 -> MenuController.goPreviousStage();
+            case 3 -> MenuController.exit();
         }
     }
 }

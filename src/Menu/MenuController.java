@@ -24,12 +24,14 @@ public class MenuController {
             currentMenuStage++;
     }
 
-    public static void goPreviousStage() throws StageOutOfBoundsException {
-        if (currentMenuStage - 1 < 0)
-            throw new StageOutOfBoundsException(
-                    "currentMenuStage не может быть меньше, чем 0");
+    public static void goBackStages(int stages) throws StageOutOfBoundsException {
+        if (currentMenuStage - stages < 0)
+            throw new StageOutOfBoundsException("currentMenuStage не может быть меньше, чем 0");
+        currentMenuStage -= stages;
+    }
 
-        currentMenuStage--;
+    public static void goPreviousStage() throws StageOutOfBoundsException {
+        goBackStages(1);
     }
 
     public static void exit() {
